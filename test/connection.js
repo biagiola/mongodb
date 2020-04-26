@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// Connecto to the db before test run
+// Connecto to the db before test run - mocha hook
 before(function(done){
     // Connect to mongodb
     const uri = 'mongodb://localhost/testaroo';
@@ -14,3 +14,11 @@ before(function(done){
     });    
 });
 
+
+beforeEach(function(done){
+    // Drop each collection 
+    // everytime we run a test is created a record
+    mongoose.connection.collections.mariochars.drop(function(){
+        done();
+    })
+})
