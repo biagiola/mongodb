@@ -39,7 +39,7 @@ describe('Nesting records', function(){
 
             Author.findOne({ name: 'Patrick Rothfuss'}).then(function(record){
                 // add a book to the books array
-                record.books.push({title: "Wise man's fear", page: 500});
+                record.books.push({title: "Wise man's fear", pages: 500});
                 record.save().then(function(){
 
                     Author.findOne({ name: 'Patrich Rothfuss' }).then(function(result){
